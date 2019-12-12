@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F6F6F6">
+
+        <FrameLayout
+            android:id="@+id/fm1"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/background_circle">
+
+            <ImageView
+                android:id="@+id/tvtitle"
+                android:layout_width="79dp"
+                android:layout_height="92dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/minilogo"
+                android:textColor="#000000"
+                android:textSize="50sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fm2"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/background_circle1">
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fm3"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/background_circle2">
+
+        </FrameLayout>
+
+        <customfonts_ui.EditText_Poppins_Regular
+            android:id="@+id/assistant_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fm1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background_gradient2"
+            android:gravity="center"
+            android:hint="Email"
+            android:inputType="text"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="15sp" />
+
+        <customfonts_ui.EditText_Poppins_Regular
+            android:id="@+id/assistant_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/assistant_email"
+            android:textCursorDrawable="@drawable/sky_blue_cursor_color"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="15sp"
+            android:background="@drawable/background_gradient2"
+            />
+
+        <customfonts_ui.Button_Poppins_Regular
+            android:id="@+id/assistant_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_below="@id/assistant_password"
+            android:textCursorDrawable="@drawable/sky_blue_cursor_color"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:background="@drawable/background_gradient"/>
+
+        <customfonts_ui.MyTextView_Poppins_Regular
+            android:id="@+id/assistant_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/assistant_signin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Punya masalah dalam login?" />
+
+
+        <customfonts_ui.MyTextView_Poppins_Regular
+            android:id="@+id/myTextView_Poppins_Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fm1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="115dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="115dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="TUGCair"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="normal" />
+
+        <ProgressBar
+            android:id="@+id/progressBarLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="68dp"
+            android:layout_height="71dp"
+            android:layout_below="@+id/assistant_password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="171dp"
+            android:layout_marginTop="135dp"
+            android:layout_marginEnd="172dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="13.7dp"
+                android:orientation="horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+    <!--</ScrollView>-->
