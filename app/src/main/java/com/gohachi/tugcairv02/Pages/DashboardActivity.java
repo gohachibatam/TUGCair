@@ -21,8 +21,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Button mBtnLogout;
-
     private boolean isGPS = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
