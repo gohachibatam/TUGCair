@@ -1,7 +1,11 @@
-package com.gohachi.tugcairv02.Pages;
+package com.gohachi.tugcairv02;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,9 +16,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.gohachi.tugcairv02.Authentication.LoginActivity;
-import com.gohachi.tugcairv02.Gps.GpsUtils;
-import com.gohachi.tugcairv02.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -22,25 +25,14 @@ public class DashboardActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button mBtnLogout;
 
-    private boolean isGPS = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        FirebaseAuthInit();
+        FirebaseInit();
 
         mBtnLogout = findViewById(R.id.btnLogOut);
-
-        Bundle bundleVar = getIntent().getExtras();
-        isGPS = bundleVar.getBoolean("statusGPS");
-
-        if(isGPS == false){
-            Toast.makeText(this, "Please turn on GPS to use this app!", Toast.LENGTH_SHORT).show();
-            mAuth.signOut();
-            redirectPage(DashboardActivity.this, LoginActivity.class);
-        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 //        AppDashboardActivity.this, R.id.nav_host_fragment);
@@ -76,7 +68,7 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    private void FirebaseAuthInit() {
+    private void FirebaseInit() {
         mAuth = FirebaseAuth.getInstance();
     }
 

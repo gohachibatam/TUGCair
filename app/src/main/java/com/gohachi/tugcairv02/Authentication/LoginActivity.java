@@ -17,14 +17,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gohachi.tugcairv02.Gps.GpsUtils;
-import com.gohachi.tugcairv02.Pages.DashboardActivity;
+import com.gohachi.tugcairv02.DashboardActivity;
 import com.gohachi.tugcairv02.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,9 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button mBtnSignIn;
     private ProgressBar mProgressBarLogin;
 
-
-    private boolean isGPS = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,18 +44,9 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseInit();
 
-        // TODO: Need authorize GPS
-        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
-            @Override
-            public void gpsStatus(boolean isGPSEnable) {
-                // turn on GPS
-                isGPS = isGPSEnable;
-            }
-        });
-
         loggedIn = isLoggedIn();
         if (loggedIn) {
-            goToDashboard(isGPS);
+            goToDashboard();
         }
 
         mUsername = findViewById(R.id.assistant_email);
@@ -86,14 +72,10 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             hideProgress();
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                            isVerified = user.isEmailVerified();
                             if (task.isSuccessful() && isVerified) {
                                 //  login sucess
                                 //  go to dashboard
-
-                                goToDashboard(isGPS);
+                                goToDashboard();
                             }else if(!isVerified){
                                 showMessageBox("Please verify your email first!");
                             }else {
@@ -135,9 +117,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void goToDashboard(Boolean gpsStatus) {
+    private void goToDashboard() {
         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-        intent.putExtra("statusGPS", gpsStatus);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
